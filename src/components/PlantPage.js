@@ -12,9 +12,14 @@ function PlantPage() {
       .then((data) => setPlants(data))
   }, [])
 
+  function addNewPlant(newPlant) {
+    setPlants([...plants, newPlant])
+  }
+
+
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm onSubmitPlant={addNewPlant} />
       <Search />
       <PlantList plants={plants} />
     </main>
